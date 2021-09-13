@@ -3,7 +3,7 @@ $(function() {
 
     "use strict";
 
-    var wind = $(window);
+    let wind = $(window);
 
 
 
@@ -23,7 +23,7 @@ $(function() {
     // navbar scrolling background
     wind.on("scroll",function () {
 
-        var bodyScroll = wind.scrollTop(),
+        let bodyScroll = wind.scrollTop(),
             navbar = $(".navbar")
 
         if(bodyScroll > 100){
@@ -39,7 +39,7 @@ $(function() {
     // navbar scrolling background
     wind.on("scroll",function () {
 
-        var bodyScroll = wind.scrollTop(),
+        let bodyScroll = wind.scrollTop(),
             navLight = $(".nav-light"),
             logo = $(".nav-light .logo> img");
 
@@ -65,11 +65,11 @@ $(function() {
     // progress bar
     wind.on('scroll', function () {
         $(".skill-progress .progres").each(function () {
-            var bottom_of_object = 
+            let bottom_of_object = 
             $(this).offset().top + $(this).outerHeight();
-            var bottom_of_window = 
+            let bottom_of_window = 
             $(window).scrollTop() + $(window).height();
-            var myVal = $(this).attr('data-value');
+            let myVal = $(this).attr('data-value');
             if(bottom_of_window > bottom_of_object) {
                 $(this).css({
                   width : myVal
@@ -80,7 +80,7 @@ $(function() {
 
 
     // sections background image from data background
-    var pageSection = $(".bg-img, section");
+    let pageSection = $(".bg-img, section");
     pageSection.each(function(indx){
         
         if ($(this).attr("data-background")){
@@ -106,7 +106,7 @@ $(function() {
 
 $(window).on("load",function (){
 
-    var wind = $(window);
+    let wind = $(window);
 
     // Preloader
     $(".loading").fadeOut(500);
@@ -134,7 +134,7 @@ $(window).on("load",function (){
     // filter items on button click
     $('.filtering').on( 'click', 'span', function() {
 
-        var filterValue = $(this).attr('data-filter');
+        let filterValue = $(this).attr('data-filter');
 
         $gallery.isotope({ filter: filterValue });
 
@@ -152,7 +152,7 @@ $(window).on("load",function (){
 
     $('#contact-form').on('submit', function (e) {
         if (!e.isDefaultPrevented()) {
-            var url = "contact.php";
+            let url = "https://formspree.io/f/xvodloke";
 
             $.ajax({
                 type: "POST",
@@ -160,10 +160,10 @@ $(window).on("load",function (){
                 data: $(this).serialize(),
                 success: function (data)
                 {
-                    var messageAlert = 'alert-' + data.type;
-                    var messageText = data.message;
+                    let messageAlert = 'alert-' + data.type;
+                    let messageText = data.message;
 
-                    var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
+                    let alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
                     if (messageAlert && messageText) {
                         $('#contact-form').find('.messages').html(alertBox);
                         $('#contact-form')[0].reset();
